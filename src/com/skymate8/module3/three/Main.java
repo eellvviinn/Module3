@@ -18,8 +18,7 @@ public class Main {
 
     private static void BFS() {
         if (visitingQueue.isEmpty()) {
-            // If It's empty, it means that we have either finished traversing, or that we haven't started traversing
-            Node root = graph.getFirst();
+            Node root = graph.get(0);
             if (root.isVisited()) {
                 System.out.println("Finished traversing");
                 return;
@@ -33,7 +32,6 @@ public class Main {
             System.out.println("Current node is null, should never happen");
             return;
         }
-        // currentKey - 1 because the graph arraylist has id 1 as entry 0, id 2 as entry 1, etc.
         Node currentNode = graph.get(currentKey - 1);
         currentNode.setVisited(true);
         for (Integer nodeId : currentNode.getNodes()) {
